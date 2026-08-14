@@ -7,7 +7,7 @@ configuration:
   analytics:
     provider: null
   locale: en-US
-  baseUrl: quartz.jzhao.xyz
+  baseUrl: eduardomadid.github.io/cyber-notes
   ignorePatterns:
     - private
     - templates
