@@ -1,0 +1,126 @@
+@use "./variables.scss" as *;
+
+:root {
+  // paleta da landing (Tokyo Night) — fonte única da verdade
+  --tn-bg:      #1a1b26;
+  --tn-fg:      #c0caf5;
+  --tn-dim:     #565f89;
+  --tn-green:   #9ece6a;
+  --tn-blue:    #7aa2f7;
+  --tn-cyan:    #7dcfff;
+  --tn-amber:   #e0af68;
+}
+
+// ---- headings: ciano suave, contido (sem o rosa berrante) ----
+h1, h2, h3, h4, h5, h6 {
+  color: var(--tn-cyan) !important;
+  font-weight: 600;
+}
+
+// ---- links: azul da landing, sublinhado discreto ----
+a {
+  color: var(--tn-blue);
+  &:hover { color: var(--tn-cyan); }
+}
+
+// ---- bold/strong: tira o vermelho, deixa texto claro forte ----
+strong, b {
+  color: var(--tn-fg);
+  font-weight: 700;
+}
+
+// ---- o título do site (canto superior esquerdo) em verde, tipo prompt ----
+.page-title, .page-title a {
+  color: var(--tn-green) !important;
+}
+
+// ---- fonte mono em TUDO (a mudança que vira "terminal") ----
+:root {
+  --font-mono: "JetBrains Mono", "JetBrainsMono Nerd Font", ui-monospace, monospace;
+}
+
+body,
+p, li, a, span,
+h1, h2, h3, h4, h5, h6,
+.page-title,
+input, button,
+.explorer, .toc, .graph {
+  font-family: var(--font-mono) !important;
+}
+
+// ---- fundo uniforme, igual à landing (sem painel flutuando) ----
+:root {
+  --light: #1a1b26 !important;      // fundo principal
+  --lightgray: #2a2b3c !important;  // bordas/divisórias
+  --gray: #565f89 !important;       // texto dim (datas, metadados)
+  --dark: #c0caf5 !important;       // texto principal
+  --darkgray: #a9b1d6 !important;   // texto secundário
+}
+
+// ---- prompt "❯" verde antes dos títulos de artigo ----
+.center h1,
+.center h2 {
+  &::before {
+    content: "❯ ";
+    color: var(--tn-green);
+    font-weight: 700;
+  }
+}
+
+// ---- esconder o "Created with Quartz" do rodapé ----
+footer p:first-of-type {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+// ---- mais espaço pro conteúdo, menos pras laterais ----
+#quartz-body {
+  grid-template-columns: 260px minmax(0, 1fr) !important;
+  margin: 0 !important;
+  max-width: none !important;
+  gap: 2rem;
+}
+
+// garante que o conteúdo central use o espaço que ganhou
+.center {
+  max-width: none !important;
+}
+
+// ---- fundo: centro no bg principal, índice levemente diferente ----
+#quartz-root,
+#quartz-body,
+.center,
+footer {
+  background: var(--bg) !important;
+}
+
+.left.sidebar {
+  background: color-mix(in srgb, var(--bg) 92%, #fff) !important;
+}
+
+// ---- remove a coluna direita vazia (graph foi pra esquerda) ----
+.right.sidebar {
+  display: none !important;
+}
+
+/// ---- explorer: tudo herda o fundo do índice ----
+// ---- força TODO o explorer (containers inclusos) ao fundo do índice ----
+.left.sidebar .explorer-ul,
+.left.sidebar .explorer-ul li,
+.left.sidebar .explorer-content,
+.left.sidebar ul.overflow,
+.left.sidebar ul.overflow li {
+  background: transparent !important;
+}
+
+// ---- cola a sidebar esquerda na borda da tela ----
+#quartz-root,
+#quartz-body {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.left.sidebar {
+  padding-left: 1.5rem !important;
+  margin-left: 0 !important;
+}
