@@ -369,7 +369,7 @@
       } else {
         out += '<span class="amber">' + cmd + '</span>\n\n<span class="cyan">\u2192 loading ' + entry.label + '...</span>';
         kernelView.innerHTML = '<div class="line">' + out + ' <span class="cursor"></span></div>';
-        setTimeout(() => { window.location.href = entry.dest; }, 800);
+        setTimeout(() => { window.location.href = entry.dest; }, 1600);
       }
     }, 350);
   }
