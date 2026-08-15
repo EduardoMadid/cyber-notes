@@ -140,9 +140,6 @@
     const t = THEMES[themeIdx];
     document.documentElement.setAttribute("data-theme", t);
     if (themeNameEl) themeNameEl.textContent = t;
-    // update the GRUB appearance entry label if present
-    const apEntry = ENTRIES.find(e => e.appearance);
-    if (apEntry) apEntry.label = "appearance: " + t;
     if (grubView.classList.contains("active")) renderMenu();
   }
   function cycleTheme() {
@@ -156,7 +153,6 @@
     { label: "techniques",      dest: QUARTZ_BASE + "/techniques/" },
     { label: "about",           dest: QUARTZ_BASE + "/about" },
     { sep: true },
-    { label: "appearance: tokyo-night", appearance: true },
     { label: "Windows 11",      joke: true },
     { label: "contact",         contact: true }
   ];
